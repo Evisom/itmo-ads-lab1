@@ -44,5 +44,17 @@ def reverse(matrix):
 
 print('Возведение матрицы в степень -1: ')
 inp = ioMatrix.inputMatrix()
-# ioMatrix.printMatrix(np.linalg.inv(inp))
 ioMatrix.printMatrix(reverse(inp))
+
+start_time = timeit.default_timer()
+reverse(inp)
+time1 = timeit.default_timer() - start_time
+
+start_time = timeit.default_timer()
+np.linalg.inv(inp)
+time2 = timeit.default_timer() - start_time
+
+print('\n')
+print('Время выполнения моего алгоритма - ', time1, ' секунд.')
+print('Время выполнения с использованием numpy - ', time2, ' секунд.')
+print('Алгоритм с использованием numpy выполнился быстрее в ', round(time2/time1, 2), ' раз')
